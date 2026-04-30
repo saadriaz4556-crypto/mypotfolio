@@ -28,19 +28,19 @@ function Cursor() {
     const handleMouseEnter = (e) => {
       cursor.style.width = '18px';
       cursor.style.height = '18px';
-      cursor.style.background = '#FF7A7A';
+      cursor.style.background = '#e8a020';
       ring.style.width = '56px';
       ring.style.height = '56px';
-      ring.style.borderColor = '#FF7A7A';
+      ring.style.borderColor = '#e8a020';
     };
 
     const handleMouseLeave = (e) => {
       cursor.style.width = '10px';
       cursor.style.height = '10px';
-      cursor.style.background = '#635BFF';
+      cursor.style.background = '#3a8c3f';
       ring.style.width = '36px';
       ring.style.height = '36px';
-      ring.style.borderColor = '#635BFF';
+      ring.style.borderColor = '#3a8c3f';
     };
 
     document.addEventListener('mousemove', handleMouseMove);

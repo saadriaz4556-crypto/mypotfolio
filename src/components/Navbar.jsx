@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function Navbar({ theme, toggleTheme }) {
+function Navbar() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
@@ -66,6 +66,16 @@ function Navbar({ theme, toggleTheme }) {
       <ul className="nav-links">
         <li>
           <a 
+            href="#hero" 
+            data-section="hero"
+            className={activeSection === 'hero' ? 'active' : ''}
+            onClick={(e) => handleNavClick(e, '#hero')}
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a 
             href="#projects" 
             data-section="projects"
             className={activeSection === 'projects' ? 'active' : ''}
@@ -127,12 +137,6 @@ function Navbar({ theme, toggleTheme }) {
       </ul>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
-        <button className="theme-toggle" onClick={toggleTheme}>
-          <div className="toggle-icons">
-            <span>🌙</span>
-            <span>☀️</span>
-          </div>
-        </button>
         <div className="hamburger" id="hamburger">
           <span></span>
           <span></span>

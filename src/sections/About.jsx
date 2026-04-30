@@ -1,9 +1,57 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { useReveal } from '../hooks/useReveal';
 
 function About() {
   const sectionRef = useRef(null);
   useReveal(sectionRef);
+
+  const quickInfoRef = useRef(null);
+  const interestsRef = useRef(null);
+
+  const handleMouseMove = (e, cardRef) => {
+    if (!cardRef.current) return;
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -12;
+    const rotateY = ((x - centerX) / centerX) * 12;
+    
+    card.style.animationPlayState = 'paused, running';
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
+  };
+
+  const handleMouseLeave = (cardRef) => {
+    if (!cardRef.current) return;
+    const card = cardRef.current;
+    
+    card.style.animationPlayState = 'running, running';
+    card.style.transform = `perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const tags = entry.target.querySelectorAll('.stag');
+          tags.forEach((tag, index) => {
+            setTimeout(() => {
+              tag.classList.add('visible');
+            }, index * 100);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (interestsRef.current) {
+      observer.observe(interestsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="about" ref={sectionRef}>
@@ -24,30 +72,35 @@ function About() {
           <div className="timeline">
             <div className="tl-item">
               <div className="tl-dot active"></div>
-              <div className="tl-year">ONGOING · FINAL YEAR</div>
-              <div className="tl-degree">BSCS — Bachelor of Computer Science</div>
+              <div className="tl-year">Graguation</div>
+              <div className="tl-degree">BSCS Bachelor of Computer Science</div>
               <div className="tl-inst">University of Punjab, Lahore</div>
             </div>
             
             <div className="tl-item">
               <div className="tl-dot"></div>
               <div className="tl-year">INTERMEDIATE</div>
-              <div className="tl-degree">ICS — Computer Science</div>
-              <div className="tl-inst">Intermediate Level</div>
+              <div className="tl-degree">ICS Computer Science</div>
+              <div className="tl-inst">BISE Rawalpindi </div>
             </div>
             
             <div className="tl-item">
               <div className="tl-dot"></div>
               <div className="tl-year">MATRICULATION</div>
               <div className="tl-degree">Biology Group</div>
-              <div className="tl-inst">Mirpur Board</div>
+              <div className="tl-inst">Mirpur Board, AJ&K</div>
             </div>
           </div>
         </div>
 
         <div className="about-aside reveal">
-          <div className="info-card">
-            <div className="info-card-title">// QUICK INFO</div>
+          <div 
+            className="info-card quick-info"
+            ref={quickInfoRef}
+            onMouseMove={(e) => handleMouseMove(e, quickInfoRef)}
+            onMouseLeave={() => handleMouseLeave(quickInfoRef)}
+          >
+            <div className="info-card-title"> QUICK INFO</div>
             <div className="info-row">
               <span className="info-k">Name</span>
               <span className="info-v">Saad Riaz</span>
@@ -58,7 +111,7 @@ function About() {
             </div>
             <div className="info-row">
               <span className="info-k">Degree</span>
-              <span className="info-v">BSCS (Final Year)</span>
+              <span className="info-v">BSCS</span>
             </div>
             <div className="info-row">
               <span className="info-k">Focus</span>
@@ -70,7 +123,12 @@ function About() {
             </div>
           </div>
 
-          <div className="info-card">
+          <div 
+            className="info-card interests-card"
+            ref={interestsRef}
+            onMouseMove={(e) => handleMouseMove(e, interestsRef)}
+            onMouseLeave={() => handleMouseLeave(interestsRef)}
+          >
             <div className="info-card-title">// INTERESTS</div>
             <div className="skill-tags">
               <span className="stag">Mobile Apps</span>

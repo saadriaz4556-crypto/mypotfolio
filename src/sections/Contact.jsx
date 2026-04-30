@@ -1,24 +1,76 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
+import { supabase } from '../lib/supabase';
 
 function Contact() {
   const sectionRef = useRef(null);
   useReveal(sectionRef);
 
-  const sendMessage = () => {
-    const name = document.getElementById('fname').value;
-    const email = document.getElementById('femail').value;
-    const message = document.getElementById('fmsg').value;
+  const phoneRef = useRef(null);
+  const emailRef = useRef(null);
+  const linkedinRef = useRef(null);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [status, setStatus] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleMouseMove = (e, cardRef) => {
+    if (!cardRef.current) return;
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -12;
+    const rotateY = ((x - centerX) / centerX) * 12;
+    
+    card.style.animationPlayState = 'paused, running';
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
+  };
+
+  const handleMouseLeave = (cardRef) => {
+    if (!cardRef.current) return;
+    const card = cardRef.current;
+    card.style.animationPlayState = 'running, running';
+    card.style.transform = `perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
 
     if (!name || !email || !message) {
       alert('Please fill all fields.');
       return;
     }
 
-    alert(`Thanks ${name}! Message received. ✅`);
-    document.getElementById('fname').value = '';
-    document.getElementById('femail').value = '';
-    document.getElementById('fmsg').value = '';
+    setLoading(true);
+    setStatus('');
+
+    try {
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([{ name, email, message }]);
+
+      if (error) throw error;
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setStatus('error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -33,7 +85,7 @@ function Contact() {
 
       <div className="contact-grid">
         <div className="contact-info reveal">
-          <a href="tel:+923420001396" className="c-link">
+          <a href="tel:+923420001396" className="c-link c-link-phone" ref={phoneRef} onMouseMove={(e) => handleMouseMove(e, phoneRef)} onMouseLeave={() => handleMouseLeave(phoneRef)}>
             <div className="c-icon">📞</div>
             <div>
               <div className="c-label">PHONE</div>
@@ -41,7 +93,7 @@ function Contact() {
             </div>
           </a>
 
-          <a href="mailto:saadriaz4555@gmail.com" className="c-link">
+          <a href="mailto:saadriaz4555@gmail.com" className="c-link c-link-email" ref={emailRef} onMouseMove={(e) => handleMouseMove(e, emailRef)} onMouseLeave={() => handleMouseLeave(emailRef)}>
             <div className="c-icon">✉️</div>
             <div>
               <div className="c-label">EMAIL</div>
@@ -49,7 +101,7 @@ function Contact() {
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/in/saad-riaz-3b36063" target="_blank" className="c-link">
+          <a href="https://www.linkedin.com/in/saad-riaz-3b3606379/" target="_blank" rel="noopener noreferrer" className="c-link c-link-linkedin" ref={linkedinRef} onMouseMove={(e) => handleMouseMove(e, linkedinRef)} onMouseLeave={() => handleMouseLeave(linkedinRef)}>
             <div className="c-icon">💼</div>
             <div>
               <div className="c-label">LINKEDIN</div>
@@ -59,44 +111,62 @@ function Contact() {
         </div>
 
         <div className="reveal">
-          <div className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label className="form-label">YOUR NAME</label>
-              <input 
-                type="text" 
-                className="form-input" 
-                placeholder="John Doe" 
-                id="fname"
+              <input
+                type="text"
+                name="name"
+                className="form-input"
+                placeholder="John Doe"
+                value={formData.name}
+                onChange={handleChange}
               />
             </div>
 
             <div className="form-group">
               <label className="form-label">EMAIL</label>
-              <input 
-                type="email" 
-                className="form-input" 
-                placeholder="john@example.com" 
-                id="femail"
+              <input
+                type="email"
+                name="email"
+                className="form-input"
+                placeholder="john@example.com"
+                value={formData.email}
+                onChange={handleChange}
               />
             </div>
 
             <div className="form-group">
               <label className="form-label">MESSAGE</label>
-              <textarea 
-                className="form-textarea" 
-                placeholder="Tell me about your project..." 
-                id="fmsg"
+              <textarea
+                name="message"
+                className="form-textarea"
+                placeholder="Tell me about your project..."
+                value={formData.message}
+                onChange={handleChange}
               ></textarea>
             </div>
 
-            <button 
-              className="btn btn-primary" 
-              onClick={sendMessage}
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={loading}
               style={{ justifyContent: 'center' }}
             >
-              ✉ Send Message
+              {loading ? 'Sending...' : '✉ Send Message'}
             </button>
-          </div>
+
+            {status === 'success' && (
+              <p style={{ color: '#22C55E', marginTop: '8px' }}>
+                ✅ Message sent successfully!
+              </p>
+            )}
+            {status === 'error' && (
+              <p style={{ color: 'red', marginTop: '8px' }}>
+                ❌ Something went wrong. Please try again.
+              </p>
+            )}
+          </form>
         </div>
       </div>
     </section>

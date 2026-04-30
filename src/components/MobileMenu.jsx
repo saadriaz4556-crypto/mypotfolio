@@ -62,6 +62,7 @@ function MobileMenu() {
 
   return (
     <div className={`mobile-menu ${isOpen ? 'open' : ''}`} id="mobileMenu">
+        <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')}>Home</a>
         <a href="#projects" onClick={(e) => handleNavClick(e, '#projects')}>Work</a>
         <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')}>Skills</a>
         <a href="#certifications" onClick={(e) => handleNavClick(e, '#certifications')}>Certifications</a>

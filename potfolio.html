@@ -4,38 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saad Riaz — Full Stack Developer & Photographer</title>
+    <title>Saad Riaz Full Stack Developer & Photographer</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
     </script>
     <style>
         :root {
-            --primary: #635BFF;
-            --primary-hover: #4F46E5;
-            --accent: #00D4FF;
-            --accent-glow: rgba(0, 212, 255, 0.25);
-            --bg: #F6F9FC;
-            --bg2: #EDF2F7;
-            --bg3: #E2E8F0;
-            --card: #FFFFFF;
-            --card2: #F8FAFC;
-            --border: rgba(99, 91, 255, 0.15);
-            --text: #0A2540;
-            --muted: #425466;
-            --muted2: #6B7C93;
-            --nav-bg: rgba(246, 249, 252, 0.94);
-            --gradient-hero: radial-gradient(ellipse 55% 55% at 65% 45%, rgba(99, 91, 255, 0.12) 0%, rgba(0, 212, 255, 0.07) 40%, transparent 70%);
-            --shadow-glow: 0 0 50px rgba(99, 91, 255, 0.12);
-            --shadow-card: 0 2px 16px rgba(10, 37, 64, 0.06);
-            --shadow-card-hover: 0 8px 32px rgba(10, 37, 64, 0.1);
-            --font-display: 'Inter', sans-serif;
+            --primary: #3a8c3f;
+            --primary-hover: #2d7032;
+            --accent: #e8a020;
+            --accent-glow: rgba(232, 160, 32, 0.25);
+            --bg: #f7f9f4;
+            --bg2: #f2f4ed;
+            --bg3: #e8ebe2;
+            --card: #ffffff;
+            --card2: #fafbf7;
+            --border: rgba(58, 140, 63, 0.15);
+            --text: #1a2e1a;
+            --muted: #3d4d3d;
+            --muted2: #5a6a5a;
+            --nav-bg: rgba(247, 249, 244, 0.94);
+            --gradient-hero: radial-gradient(ellipse 55% 55% at 65% 45%, rgba(58, 140, 63, 0.12) 0%, rgba(232, 160, 32, 0.07) 40%, transparent 70%);
+            --shadow-glow: 0 0 50px rgba(58, 140, 63, 0.12);
+            --shadow-card: 0 2px 16px rgba(58, 140, 63, 0.06);
+            --shadow-card-hover: 0 8px 32px rgba(58, 140, 63, 0.15);
+            --font-display: 'Poppins', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
             --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --stripe-gradient: linear-gradient(135deg, #635BFF 0%, #A78BFA 35%, #FF7A7A 65%, #FFB86B 100%);
+            --stripe-gradient: linear-gradient(135deg, #3a8c3f 0%, #2d7032 35%, #e8a020 65%, #f0b835 100%);
             --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-border: rgba(58, 140, 63, 0.2);
         }
 
         [data-theme="dark"] {
@@ -77,7 +77,7 @@
             font-family: var(--font-display);
             overflow-x: hidden;
             transition: background .4s, color .4s;
-            cursor: none;
+            cursor: auto;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -135,7 +135,7 @@
         }
 
         .page-transition-overlay.active {
-            background: rgba(99, 91, 255, 0.06);
+            background: rgba(58, 140, 63, 0.06);
             transition: background 0.15s ease;
         }
 
@@ -160,7 +160,7 @@
         .orb-2 {
             width: 250px;
             height: 250px;
-            background: #A78BFA;
+            background: #5da34d;
             bottom: 15%;
             left: -6%;
             animation-delay: -4s;
@@ -169,7 +169,7 @@
         .orb-3 {
             width: 200px;
             height: 200px;
-            background: #FF7A7A;
+            background: #e8a020;
             top: 50%;
             right: 20%;
             animation-delay: -8s;
@@ -178,7 +178,7 @@
         .orb-4 {
             width: 180px;
             height: 180px;
-            background: #FFB86B;
+            background: #f0b835;
             bottom: 5%;
             right: 25%;
             animation-delay: -2s;
@@ -329,7 +329,7 @@
 
         [data-theme="dark"] .theme-toggle::before {
             transform: translateX(28px);
-            background: linear-gradient(135deg, #FFB86B, #FF7A7A);
+            background: linear-gradient(135deg, #f0b835, #e8a020);
         }
 
         .toggle-icons {
@@ -430,8 +430,8 @@
             font-size: .72rem;
             color: var(--primary);
             letter-spacing: .12em;
-            border: 1px solid rgba(99, 91, 255, 0.3);
-            background: rgba(99, 91, 255, .06);
+            border: 1px solid rgba(58, 140, 63, 0.3);
+            background: rgba(58, 140, 63, .06);
             padding: .42rem 1.1rem;
             border-radius: 30px;
             margin-bottom: 2rem;
@@ -589,7 +589,7 @@
             border-radius: 50%;
             background: var(--stripe-gradient);
             padding: 3px;
-            box-shadow: 0 8px 32px rgba(99, 91, 255, 0.25);
+            box-shadow: 0 8px 32px rgba(58, 140, 63, 0.25);
             transition: transform .3s ease;
             display: flex;
             align-items: center;
@@ -598,7 +598,7 @@
 
         .hero-profile-img:hover {
             transform: scale(1.06);
-            box-shadow: 0 12px 40px rgba(99, 91, 255, 0.35);
+            box-shadow: 0 12px 40px rgba(58, 140, 63, 0.35);
         }
 
         .hero-profile-img-inner {
@@ -626,7 +626,7 @@
             aspect-ratio: 1;
             border-radius: 50%;
             animation: fadeUp .8s .4s ease both;
-            filter: drop-shadow(0 0 60px rgba(99, 91, 255, 0.18));
+            filter: drop-shadow(0 0 60px rgba(58, 140, 63, 0.18));
         }
 
         .profile-float {
@@ -718,37 +718,38 @@
         .btn-primary {
             background: var(--primary);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(99, 91, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(58, 140, 63, 0.3);
         }
 
         .btn-primary:hover {
             background: var(--primary-hover);
             transform: translateY(-3px);
-            box-shadow: 0 10px 35px rgba(99, 91, 255, 0.4);
+            box-shadow: 0 10px 35px rgba(58, 140, 63, 0.4);
         }
 
         .btn-outline {
             background: transparent;
             color: var(--primary);
-            border: 1.5px solid rgba(99, 91, 255, 0.35);
+            border: 1.5px solid rgba(58, 140, 63, 0.35);
         }
 
         .btn-outline:hover {
-            background: rgba(99, 91, 255, .06);
+            background: rgba(58, 140, 63, .06);
             border-color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(99, 91, 255, 0.12);
+            box-shadow: 0 8px 28px rgba(58, 140, 63, 0.12);
         }
 
         .btn-warm {
-            background: var(--stripe-gradient);
+            background: var(--accent);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(99, 91, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(232, 160, 32, 0.3);
         }
 
         .btn-warm:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 35px rgba(99, 91, 255, 0.4);
+            box-shadow: 0 10px 35px rgba(232, 160, 32, 0.4);
+            background: #d68a1a;
         }
 
         section {
@@ -916,8 +917,8 @@
             font-family: var(--font-mono);
             font-size: .75rem;
             padding: .32rem .8rem;
-            background: rgba(99, 91, 255, .06);
-            border: 1px solid rgba(99, 91, 255, .15);
+            background: rgba(58, 140, 63, .06);
+            border: 1px solid rgba(58, 140, 63, .15);
             color: var(--text);
             border-radius: 20px;
             transition: all .25s;
@@ -925,7 +926,7 @@
         }
 
         .stag:hover {
-            background: rgba(99, 91, 255, .14);
+            background: rgba(58, 140, 63, .14);
             color: var(--primary);
             border-color: var(--primary);
             transform: translateY(-2px);
@@ -969,11 +970,11 @@
         }
 
         .proj-banner-1 {
-            background: linear-gradient(160deg, #635BFF 0%, #A78BFA 40%, #FF7A7A 80%, #FFB86B 100%);
+            background: linear-gradient(160deg, #3a8c3f 0%, #5da34d 40%, #e8a020 80%, #f0b835 100%);
         }
 
         .proj-banner-2 {
-            background: linear-gradient(160deg, #0A2540 0%, #1a3a5c 40%, #0d2a45 100%);
+            background: linear-gradient(160deg, #2d7032 0%, #3a8c3f 40%, #5da34d 100%);
         }
 
         .proj-num {
@@ -1020,7 +1021,7 @@
             font-family: var(--font-mono);
             font-size: .67rem;
             color: var(--primary);
-            background: rgba(99, 91, 255, .07);
+            background: rgba(58, 140, 63, .07);
             padding: .22rem .6rem;
             border-radius: 12px;
             font-weight: 500;
@@ -1081,7 +1082,7 @@
         .photo-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(10, 37, 64, .8) 0%, rgba(10, 37, 64, .1) 40%, transparent 65%);
+            background: linear-gradient(to top, rgba(26, 46, 26, .8) 0%, rgba(26, 46, 26, .1) 40%, transparent 65%);
             opacity: 0;
             transition: .35s;
             display: flex;
@@ -1098,7 +1099,7 @@
             font-size: .68rem;
             color: #fff;
             letter-spacing: .08em;
-            background: rgba(99, 91, 255, .4);
+            background: rgba(58, 140, 63, .4);
             padding: .25rem .7rem;
             border-radius: 20px;
             backdrop-filter: blur(6px);
@@ -1334,7 +1335,7 @@
 
         .cert-icon {
             font-size: 2rem;
-            background: rgba(99, 91, 255, 0.08);
+            background: rgba(58, 140, 63, 0.08);
             width: 44px;
             height: 44px;
             border-radius: 10px;
@@ -1392,7 +1393,7 @@
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
-            box-shadow: 0 4px 16px rgba(99, 91, 255, 0.25);
+            box-shadow: 0 4px 16px rgba(58, 140, 63, 0.25);
         }
 
         /* ══ CERTIFICATE MODAL ══ */
@@ -1400,7 +1401,7 @@
             position: fixed;
             inset: 0;
             z-index: 10000;
-            background: rgba(10, 37, 64, 0.7);
+            background: rgba(26, 46, 26, 0.7);
             backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
@@ -1619,7 +1620,7 @@
             width: 46px;
             height: 46px;
             border-radius: 12px;
-            background: rgba(99, 91, 255, .06);
+            background: rgba(58, 140, 63, .06);
             border: 1px solid var(--border);
             display: flex;
             align-items: center;
@@ -1629,7 +1630,7 @@
         }
 
         .c-link:hover .c-icon {
-            background: rgba(99, 91, 255, .14);
+            background: rgba(58, 140, 63, .14);
             border-color: var(--primary);
         }
 
@@ -1683,7 +1684,7 @@
         .form-input:focus,
         .form-textarea:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(99, 91, 255, 0.1);
+            box-shadow: 0 0 20px rgba(58, 140, 63, 0.1);
         }
 
         .form-textarea {
@@ -1719,7 +1720,7 @@
             border-color: var(--primary);
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(99, 91, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(58, 140, 63, 0.3);
         }
 
         .social-icon-link svg {
@@ -2053,7 +2054,7 @@
             <p class="hero-tagline">Full Stack Developer (Mobile + Web) &amp; Photographer</p>
             <h2 class="hero-headline">"Building <span class="highlight">scalable apps</span> and capturing <span
                     class="highlight">moody aesthetics</span>."</h2>
-            <p class="hero-sub">Flutter, React, Node.js — and a camera when the code compiles.</p>
+            <p class="hero-sub">Flutter, React, Node.js and a camera when the code compiles.</p>
             <div class="hero-btns">
                 <a href="#projects" class="btn btn-primary">▶&nbsp; View My Work</a>
                 <a href="#contact" class="btn btn-outline">✉&nbsp; Hire Me</a>
@@ -2105,7 +2106,7 @@
     <section id="skills">
         <div class="sec-label reveal">TECH STACK</div>
         <h2 class="sec-title reveal">Skills &amp; Tools</h2>
-        <p class="sec-desc reveal">Cross-platform expertise from mobile to backend — I build complete, polished
+        <p class="sec-desc reveal">Cross-platform expertise from mobile to backend I build complete, polished
             solutions.</p>
         <div class="skills-wrap">
             <div class="skill-card-3d reveal">
@@ -2324,13 +2325,13 @@
                     <div class="tl-item">
                         <div class="tl-dot active"></div>
                         <div class="tl-year">ONGOING · FINAL YEAR</div>
-                        <div class="tl-degree">BSCS — Bachelor of Computer Science</div>
+                        <div class="tl-degree">BSCS Bachelor of Computer Science</div>
                         <div class="tl-inst">University of Punjab, Lahore</div>
                     </div>
                     <div class="tl-item">
                         <div class="tl-dot"></div>
                         <div class="tl-year">INTERMEDIATE</div>
-                        <div class="tl-degree">ICS — Computer Science</div>
+                        <div class="tl-degree">ICS Computer Science</div>
                         <div class="tl-inst">Intermediate Level</div>
                     </div>
                     <div class="tl-item">
@@ -2517,8 +2518,8 @@
         document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
         (function animRing() { rx += (mx - rx) * .14; ry += (my - ry) * .14; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
         document.querySelectorAll('a,button,.proj-card,.skill-card-3d,.c-link,.masonry-item,.hero-name-letter,.cert-card,.social-icon-link').forEach(el => {
-            el.addEventListener('mouseenter', () => { cur.style.width = '18px'; cur.style.height = '18px'; cur.style.background = '#FF7A7A'; ring.style.width = '56px'; ring.style.height = '56px'; ring.style.borderColor = '#FF7A7A'; });
-            el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.background = '#635BFF'; ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = '#635BFF'; });
+            el.addEventListener('mouseenter', () => { cur.style.width = '18px'; cur.style.height = '18px'; cur.style.background = '#e8a020'; ring.style.width = '56px'; ring.style.height = '56px'; ring.style.borderColor = '#e8a020'; });
+            el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.background = '#3a8c3f'; ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = '#3a8c3f'; });
         });
 
         document.getElementById('themeToggle').addEventListener('click', () => {
@@ -2626,15 +2627,15 @@
             const geo = new THREE.SphereGeometry(1, 52, 52);
             const mat = new THREE.MeshPhongMaterial({ color: 0x635BFF, wireframe: false, transparent: true, opacity: 0.7, shininess: 60, specular: 0x4F46E5 });
             const globe = new THREE.Mesh(geo, mat); scene.add(globe);
-            const wf = new THREE.Mesh(new THREE.SphereGeometry(1.015, 30, 30), new THREE.MeshBasicMaterial({ color: 0x00D4FF, wireframe: true, transparent: true, opacity: 0.1 })); scene.add(wf);
-            const wf2 = new THREE.Mesh(new THREE.SphereGeometry(1.03, 20, 20), new THREE.MeshBasicMaterial({ color: 0xA78BFA, wireframe: true, transparent: true, opacity: 0.06 })); scene.add(wf2);
-            const r1 = new THREE.Mesh(new THREE.TorusGeometry(1.28, 0.014, 8, 100), new THREE.MeshBasicMaterial({ color: 0x635BFF, transparent: true, opacity: .45 })); r1.rotation.x = Math.PI / 2; scene.add(r1);
-            const r2 = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.008, 8, 100), new THREE.MeshBasicMaterial({ color: 0xA78BFA, transparent: true, opacity: .25 })); r2.rotation.x = Math.PI / 3; r2.rotation.y = Math.PI / 6; scene.add(r2);
-            const r3 = new THREE.Mesh(new THREE.TorusGeometry(1.42, 0.005, 8, 80), new THREE.MeshBasicMaterial({ color: 0xFF7A7A, transparent: true, opacity: .2 })); r3.rotation.x = Math.PI / 4; r3.rotation.y = -Math.PI / 5; scene.add(r3);
-            scene.add(new THREE.AmbientLight(0x334466, 1.6));
-            const pL = new THREE.PointLight(0x635BFF, 2, 8); pL.position.set(3, 3, 3); scene.add(pL);
-            const pL2 = new THREE.PointLight(0xA78BFA, 1.2, 6); pL2.position.set(-3, -2, -2); scene.add(pL2);
-            const pL3 = new THREE.PointLight(0xFF7A7A, 0.7, 5); pL3.position.set(1, -2, 3); scene.add(pL3);
+            const wf = new THREE.Mesh(new THREE.SphereGeometry(1.015, 30, 30), new THREE.MeshBasicMaterial({ color: 0xe8a020, wireframe: true, transparent: true, opacity: 0.1 })); scene.add(wf);
+            const wf2 = new THREE.Mesh(new THREE.SphereGeometry(1.03, 20, 20), new THREE.MeshBasicMaterial({ color: 0x5da34d, wireframe: true, transparent: true, opacity: 0.06 })); scene.add(wf2);
+            const r1 = new THREE.Mesh(new THREE.TorusGeometry(1.28, 0.014, 8, 100), new THREE.MeshBasicMaterial({ color: 0x3a8c3f, transparent: true, opacity: .45 })); r1.rotation.x = Math.PI / 2; scene.add(r1);
+            const r2 = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.008, 8, 100), new THREE.MeshBasicMaterial({ color: 0x5da34d, transparent: true, opacity: .25 })); r2.rotation.x = Math.PI / 3; r2.rotation.y = Math.PI / 6; scene.add(r2);
+            const r3 = new THREE.Mesh(new THREE.TorusGeometry(1.42, 0.005, 8, 80), new THREE.MeshBasicMaterial({ color: 0xe8a020, transparent: true, opacity: .2 })); r3.rotation.x = Math.PI / 4; r3.rotation.y = -Math.PI / 5; scene.add(r3);
+            scene.add(new THREE.AmbientLight(0x2d7032, 1.6));
+            const pL = new THREE.PointLight(0x3a8c3f, 2, 8); pL.position.set(3, 3, 3); scene.add(pL);
+            const pL2 = new THREE.PointLight(0x5da34d, 1.2, 6); pL2.position.set(-3, -2, -2); scene.add(pL2);
+            const pL3 = new THREE.PointLight(0xe8a020, 0.7, 5); pL3.position.set(1, -2, 3); scene.add(pL3);
             let mxG = 0, myG = 0, t = 0;
             document.addEventListener('mousemove', e => { mxG = (e.clientX / window.innerWidth - .5) * 2; myG = (e.clientY / window.innerHeight - .5) * 2; });
             function anim() {
