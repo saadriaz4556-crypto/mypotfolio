@@ -34,6 +34,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -44,7 +49,6 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--font-display);
-    overflow-x: hidden;
     transition: background .4s, color .4s;
     cursor: auto;
     line-height: 1.6;
@@ -2764,4 +2768,233 @@ footer {
 .pdf-close-btn:hover {
     transform: scale(1.1);
     background: #d40000;
+}
+
+/* ══ MOBILE RESPONSIVENESS FIXES ══ */
+
+@media (max-width: 768px) {
+    /* Navbar Mobile Fix */
+    nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-links {
+        display: none; /* Hide desktop links */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 80px;
+        gap: 0;
+        background: white;
+        z-index: 9999;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .mobile-menu.open {
+        display: flex;
+    }
+
+    .mobile-menu a {
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        color: var(--text);
+    }
+
+    /* Hero Section Mobile Fix */
+    #hero {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        grid-template-columns: 1fr;
+        padding: 100px 16px 40px;
+        flex-direction: column;
+        display: flex;
+        text-align: center;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .hero-left {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hero-right {
+        order: 2;
+        margin-top: 30px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .hero-name-container {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        justify-content: center;
+    }
+
+    .hero-tagline, .hero-headline, .hero-sub {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+    .hero-btns {
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .hero-btns .btn {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        margin: 8px auto;
+    }
+
+    .social-icons-row {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .social-icon-link {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* Matrix Circle Mobile Fix */
+    .hero-globe-container {
+        width: 260px;
+        height: 260px;
+        margin: 0 auto;
+    }
+
+    .hero-outer-ring {
+        width: 310px;
+        height: 310px;
+    }
+
+    .hero-second-ring {
+        width: 360px;
+        height: 360px;
+    }
+
+    .hero-globe-wrapper {
+        margin: 30px auto 0 auto;
+    }
+
+    .profile-float {
+        max-width: 90vw;
+        font-size: 12px;
+        padding: 8px 12px;
+        bottom: 1rem;
+    }
+
+    /* Skills Section Mobile Fix */
+    .skills-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card-3d {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .skill-card-inner {
+        min-height: auto;
+    }
+
+    .skill-card {
+        padding: 16px;
+        position: relative;
+        min-height: auto;
+        margin-bottom: 12px;
+    }
+
+    .skill-tags {
+        flex-wrap: wrap;
+    }
+
+    /* Contact Section Mobile Fix */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .c-link {
+        width: 100%;
+        max-width: 100%;
+        padding: 14px 16px;
+    }
+
+    .c-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .c-val {
+        font-size: clamp(12px, 3.5vw, 16px);
+        word-break: break-all;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .form-input, .form-textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* General Padding */
+    section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-wrap {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-name-container {
+        font-size: 2.2rem;
+    }
+
+    .sec-title {
+        font-size: 1.8rem;
+    }
+
+    .profile-float {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        white-space: normal;
+    }
 }
